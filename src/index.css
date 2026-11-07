@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 10%;
+    --foreground: 40 20% 92%;
+
+    --card: 220 18% 13%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 220 18% 13%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 24 70% 55%;
+    --primary-foreground: 220 20% 8%;
+
+    --secondary: 220 14% 18%;
+    --secondary-foreground: 40 12% 78%;
+
+    --muted: 220 14% 16%;
+    --muted-foreground: 220 10% 52%;
+
+    --accent: 24 70% 55%;
+    --accent-foreground: 220 20% 8%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 20%;
+    --input: 220 14% 20%;
+    --ring: 24 70% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom semantic tokens */
+    --surface-elevated: 220 16% 15%;
+    --surface-overlay: 220 18% 12%;
+    --text-bright: 40 30% 96%;
+    --text-dim: 220 10% 45%;
+    --geo-pipe: 173 58% 39%;
+    --geo-buffer: 45 80% 55%;
+    --geo-heritage: 0 65% 50%;
+    --geo-route: 24 80% 58%;
+
+    --sidebar-background: 220 18% 11%;
+    --sidebar-foreground: 40 12% 78%;
+    --sidebar-primary: 24 70% 55%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 14% 18%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 220 14% 20%;
+    --sidebar-ring: 24 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  .text-bright {
+    color: hsl(var(--text-bright));
+  }
+
+  .text-dim {
+    color: hsl(var(--text-dim));
+  }
+
+  .surface-elevated {
+    background-color: hsl(var(--surface-elevated));
+  }
+
+  .surface-overlay {
+    background-color: hsl(var(--surface-overlay));
+  }
+}
+
+/* Cesium widget overrides */
+#cesiumContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.cesium-viewer-bottom,
+.cesium-viewer-animationContainer,
+.cesium-viewer-timelineContainer {
+  display: none !important;
+}
+
+/* Scroll reveal animation */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-reveal-up {
+  animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Hide scrollbar but keep scrollability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom range slider thumb */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(168,85,247,0.4);
+}
+input[type=range]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(168,85,247,0.4);
+}

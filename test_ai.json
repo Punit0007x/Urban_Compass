@@ -1,0 +1,15 @@
+{
+  "analysis_data": {
+    "overall_score": 0.85,
+    "area": {
+      "square_meters": 500000
+    },
+    "metrics": {
+      "slope": {
+        "mean_degrees": 5
+      }
+    }
+  },
+  "density": "medium",
+  "population": 50000
+}

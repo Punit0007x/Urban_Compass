@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.114/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.114/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+</head>
+<body>
+    <div id="cesiumContainer" style="width: 100%; height: 100vh;"></div>
+    <script>
+        const viewer = new Cesium.Viewer('cesiumContainer', {
+            terrainProvider: Cesium.createWorldTerrainAsync()
+        });
+        const rect = Cesium.Rectangle.fromDegrees(-100, 30, -90, 40);
+        viewer.scene.globe.cartographicLimitRectangle = rect;
+        viewer.camera.flyTo({destination: rect});
+    </script>
+</body>
+</html>

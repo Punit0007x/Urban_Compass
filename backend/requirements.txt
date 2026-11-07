@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+shapely
+geojson
+numpy
+pydantic
+requests
+python-multipart
+python-dotenv
+osmnx
+networkx
+rasterio
+matplotlib
